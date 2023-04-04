@@ -33,7 +33,7 @@ The script will prompt you with a few questions, such as which Laravel applicati
 
 
 ```bash
-  cd ubuntu-laravel-installer
+  cd laravel-ubuntu-installer
 ```
 
 
