@@ -27,7 +27,7 @@ The script will prompt you with a few questions, such as which Laravel applicati
 
 
 ```bash
-  git clone git@github.com:cenksen/ubuntu-laravel-installer.git
+  git clone git@github.com:cenksen/laravel-ubuntu-installer.git
 ```
 
 
