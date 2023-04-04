@@ -1,20 +1,16 @@
 #!/bin/bash
 
-# Proje ismini kullanıcıdan alın
 echo -n "Project name (domain.com):"
 read project_name
 
-# Kullanıcıdan PHP sürümünü alın
 echo -n "PHP version (Recommeneded 8.1):"
 read php_version
 
-# PHP kurulumu
 sudo apt update
 sudo apt install php$php_version-xml -y php$php_version -y  php$php_version-fpm -y php$php_version-bcmath -y php$php_version-bz2 -y php$php_version-cli -y php$php_version-common -y php$php_version-curl -y php$php_version-dev -y php$php_version-gd -y php$php_version-igbinary -y php$php_version-imagick -y php$php_version-imap -y php$php_version-intl -y php$php_version-mbstring -y php$php_version-memcached -y php$php_version-msgpack -y php$php_version-mysql -y php$php_version-opcache -y php$php_version-pgsql -y php$php_version-readline -y php$php_version-redis -y php$php_version-soap -y php$php_version-ssh2 -y php$php_version-tidy -y php$php_version-xmlrpc -y php$php_version-zip -y
 echo "PHP installed successfully :)"
 
 
-# MySQL veritabanı oluşturma
 echo -n "Database name for MySQL: "
 read db_name
 echo -n "Username for MySQL: "
@@ -30,12 +26,10 @@ echo "MySQL has been successfully installed and the database has been created:"
 
 
 
-# Git ve Composer kurulumu
 sudo apt-get install -y git composer
 echo "Git and Composer installed successfully :)"
 
 
-# SSH anahtarı oluşturma
 ssh-keygen -t rsa -b 4096 -C "$USER@$HOSTNAME"
 echo "Please add the following SSH key to https://github.com/user-name/project-name/settings/keys: "
 cat ~/.ssh/id_rsa.pub
@@ -56,7 +50,6 @@ read project_link
 
 
 
-# Laravel projesi kopyalama ve Composer bağımlılıklarının yüklenmesi
 git clone $project_link /var/www/$project_name
 
 sudo mv /var/www/$project_name/{,.} /var/www/$project_name
@@ -64,7 +57,6 @@ sudo mv /var/www/$project_name/{,.} /var/www/$project_name
 
 
 
-# Nginx kurulumu ve konfigürasyon dosyası oluşturma
 cd /
 sudo apt install -y nginx
 sudo mkdir -p /var/www/$project_name/public
